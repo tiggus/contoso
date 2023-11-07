@@ -6,7 +6,17 @@ on:
     branches: [ "dev" ]
 
 jobs:
+   whitesource:
+    runs-on: ubuntu-latest
+  
+    steps:
+      - uses: actions/checkout@v3
+
+      - name: whitesource
+        run: echo scan and report
+  
   build:
+    needs: whitesource
     runs-on: ubuntu-latest
 
     steps:
@@ -23,16 +33,6 @@ jobs:
 
       - name: publish to registry
         run: echo publish
-  
-  whitesource:
-    needs: build
-    runs-on: ubuntu-latest
-  
-    steps:
-      - uses: actions/checkout@v3
-
-      - name: whitesource
-        run: echo scan and report
 
   unit-test:
     needs: [build, whitesource]
