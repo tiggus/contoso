@@ -6,7 +6,7 @@ on:
     branches: [ "dev" ]
 
 jobs:
-   whitesource:
+  whitesource:
     runs-on: ubuntu-latest
   
     steps:
