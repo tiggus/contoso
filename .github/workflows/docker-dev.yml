@@ -27,6 +27,12 @@ jobs:
   whitesource:
     needs: build
     runs-on: ubuntu-latest
+  
+    steps:
+      - uses: actions/checkout@v3
+
+      - name: whitesource
+        run: echo scan and report
 
   unit-test:
     needs: [build, whitesource]
