@@ -23,8 +23,13 @@ jobs:
 
       - name: publish to registry
         run: echo publish
+  
+  whitesource:
+    needs: build
+    runs-on: ubuntu-latest
 
   unit-test:
+    needs: [build, whitesource]
     runs-on: ubuntu-latest
 
     steps:
