@@ -1,0 +1,43 @@
+name: application
+
+on:
+  push:
+  pull_request:
+    branches: [ "dev" ]
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v3
+
+      - name: setup node / python
+        run: echo setup python etc
+
+      - name: build image
+        run: echo build image
+
+      - name: publish to blob
+        run: echo copy image
+
+      - name: publish to registry
+        run: echo publish
+
+  unit-test:
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v3
+
+      - name: deploy image to ut env
+        run: echo deploy image
+      
+      - name: run unit tests
+        run: echo run unit tests / trigger functions etc
+      
+    
+
+      
+
+
