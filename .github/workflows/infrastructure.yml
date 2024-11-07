@@ -20,6 +20,9 @@ jobs:
           output_format: cli,sarif
           output_file_path: console,results.sarif
 
+      - name: install homebrew
+        run: /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
+
       - name: Terraform init
         run: terraform init
 
