@@ -13,7 +13,7 @@ jobs:
     steps:
       - uses: actions/checkout@v3
 
-      - name: Checkov GitHub Action
+      - name: Checkov
         uses: bridgecrewio/checkov-action@v12
         with:
           # This will add both a CLI output to the console and create a results.sarif file
@@ -21,8 +21,9 @@ jobs:
           output_file_path: console,results.sarif
 
       - name: install homebrew
+        needs: Checkov
         run: /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
-
+        
       - name: Terraform init
         run: terraform init
 
